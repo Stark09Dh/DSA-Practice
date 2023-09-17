@@ -12,7 +12,7 @@ struct Node
     }
 };
 
-void bfs(struct Node* root){
+void bfs(Node* root){
     if(root == NULL) return ;
 
     queue<Node*> q ;

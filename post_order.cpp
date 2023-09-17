@@ -12,12 +12,11 @@ struct Node
         left = right = NULL;
     }
 };
-
+// using Recursion :
 void post_order(struct Node* node){
     if(node == NULL) return ;
 
     post_order(node->left);
-    //cout << node->data << " ";
     post_order(node->right);
     cout << node->data << " ";
 }
@@ -34,7 +33,17 @@ int main(){
     root -> right -> right -> left = new Node(9);
     root -> right -> right -> right = new Node(10);
 
+    cout << "Using Recursion : ";
     post_order(root);
-    
-
 }
+
+/*
+     Representation of Binary Tree :
+          1
+        /   \
+       2     3
+     /  \   / \
+    4   5  7   8
+       /      / \
+      6      9  10
+*/
