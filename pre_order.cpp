@@ -12,13 +12,25 @@ struct Node
         left = right = NULL;
     }
 };
-
+// using Recursion : 
 void pre_order(struct Node* node){
     if(node == NULL) return ;
 
     cout << node->data << " ";
     pre_order(node->left);
     pre_order(node->right);
+}
+// using Iterative approach : 
+void pre(struct Node* root){
+    stack<Node*>st;
+    st.push(root);
+    while(!st.empty()){
+        root = st.top();
+        st.pop();
+        cout << root -> data << " ";
+        if(root->right != NULL) st.push(root->right);
+        if(root->left != NULL) st.push(root->left);
+    }
 }
 
 int main(){
@@ -33,7 +45,20 @@ int main(){
     root -> right -> right -> left = new Node(9);
     root -> right -> right -> right = new Node(10);
 
+    cout << "Using Recursion : ";
     pre_order(root);
-    
-
+    cout <<endl;
+    cout << "Using iterative approach : ";
+    pre(root);
 }
+
+/*
+     Representation of Binary Tree :
+          1
+        /   \
+       2     3
+     /  \   / \
+    4   5  7   8
+       /      / \
+      6      9  10
+*/
