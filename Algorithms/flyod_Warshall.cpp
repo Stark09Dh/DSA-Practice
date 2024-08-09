@@ -2,68 +2,55 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Number of vertices in the graph
-#define V 4
+#define INF 99999 
 
-/* Define Infinite as a large enough
-value.This value will be used for
-vertices not connected to each other */
-#define INF 99999
-
-// A function to print the solution matrix
-void printSolution(int dist[][V]);
-
-// Solves the all-pairs shortest path
-// problem using Floyd Warshall algorithm
-void floydWarshall(int dist[][V])
-{
-
-    int i, j, k;
-    for (k = 0; k < V; k++) {
-        
-        for (i = 0; i < V; i++) {
-            
-            for (j = 0; j < V; j++) {
-                
-                if (dist[i][j] > (dist[i][k] + dist[k][j])
-                    && (dist[k][j] != INF
-                        && dist[i][k] != INF))
-                    dist[i][j] = dist[i][k] + dist[k][j];
+void floyd_Warshall(vector<vector<int>>&cost){
+    int n = cost.size();
+    for(int k=0;k<n;k++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                cost[i][j] = min(cost[i][j] , cost[i][k]+cost[k][j]);
             }
         }
     }
-
-    // Print the shortest distance matrix
-    printSolution(dist);
 }
 
-/* A utility function to print solution */
-void printSolution(int dist[][V])
+
+int main()
 {
-    cout << "The following matrix shows the shortest "
-            "distances"
-            " between every pair of vertices \n";
-    for (int i = 0; i < V; i++) {
-        for (int j = 0; j < V; j++) {
-            if (dist[i][j] == INF)
-                cout << "INF"
-                     << " ";
-            else
-                cout << dist[i][j] << "   ";
+    int V = 6;
+    vector<vector<int>>edges = {{0,1,4},{0, 2, 4},{1,2,2},{2,3,3},{2,4,1},{2,5,6},{3,5,2},{4,5,3}};
+
+    vector<vector<int>>cost(V,vector<int>(V,INF));
+
+    for(int i=0;i<V;i++){
+        cost[i][i] = 0 ;
+    }
+
+    for(int i=0;i<V;i++){
+        for(int j=0;j<V;j++){
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int w = edges[i][2];
+
+            cost[u][v] = w ;
+        }
+    }
+
+    floyd_Warshall(cost);
+
+    for(int i=0;i<V;i++){
+        for(int j= 0;j<V;j++){
+            if(cost[i][j] == INF){
+                cout << -1 << " ";
+            }
+            else{
+                cout << cost[i][j] << " ";
+            }
         }
         cout << endl;
     }
-}
 
-// Driver's code
-int main()
-{
-    
-    int graph[V][V] = { { 0, 5, INF, 10 },
-                        { INF, 0, 3, INF },
-                        { INF, INF, 0, 1 },
-                        { INF, INF, INF, 0 } };
 
-    floydWarshall(graph);
     return 0;
 }
