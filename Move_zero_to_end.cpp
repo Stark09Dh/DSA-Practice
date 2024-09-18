@@ -4,7 +4,31 @@ using namespace std ;
 
 
 // TC = O(2n)
-void soln(vector<int>&arr,int n){
+void soln(vec
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ptor<int>&arr,int n){
     vector<int>temp;
     for(int i=0;i<n;i++){
         if(arr[i] != 0){
