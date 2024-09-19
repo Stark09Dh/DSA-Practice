@@ -2,6 +2,12 @@
  
 using namespace std ;
 
+#include<bits/stdc++.h>
+ 
+using namespace std ;
+ 
+
+
 
 // Brute Force TC = O(N*N) SC = O(N)
 vector<int>sol(vector<int>&arr){
