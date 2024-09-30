@@ -8,7 +8,7 @@ void BubbleSort(vector<int>&arr){
     for(int i=n-1;i>=0;i--){
         int swaps = 0 ;
         for(int j = 0;j<=i-1;j++){
-            if(arr[j] > arr[j+1]){
+            if(arr[j] > arr[0]){
                 swap(arr[j],arr[j+1]);
                 swaps=1;
             }
