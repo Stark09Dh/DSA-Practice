@@ -1,4 +1,9 @@
-int n = derived.size() ;
+#include<bits/stdc++.h>
+ 
+using namespace std ;
+
+bool doesValidArrayExist(vector<int>& derived) {
+    int n = derived.size() ;
     vector<int>org (n) ;
     org[0] = 0 ;
 
@@ -20,3 +25,16 @@ int n = derived.size() ;
         return true ;
     }
     return false ;
+}
+ 
+int main(){
+
+    vector<int> derived = {1,0,1,0,1} ;
+
+    int ans = doesValidArrayExist(derived) ;
+
+    cout << ans ;
+ 
+    
+    return 0;
+}
