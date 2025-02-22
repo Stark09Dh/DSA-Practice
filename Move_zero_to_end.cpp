@@ -4,31 +4,8 @@ using namespace std ;
 
 
 // TC = O(2n)
-void soln(vec
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Ptor<int>&arr,int n){
+void soln(vector<int>&arr){
+    int n = arr.size() ;
     vector<int>temp;
     for(int i=0;i<n;i++){
         if(arr[i] != 0){
@@ -37,13 +14,16 @@ Ptor<int>&arr,int n){
     }
     for(int i=0;i<temp.size();i++){
         arr[i] = temp[i];
+        cout << arr[i] << " " ;
     }
+    cout << endl;
     for(int j=temp.size();j<n;j++){
         arr[j] = 0 ;
     }
 }
 
-void soln2(vector<int>&arr,int n){
+void soln2(vector<int>&arr){
+    int n = arr.size() ;
     int j = -1 ;
     for(int i=0;i<n;i++){
         if(arr[i] == 0){
@@ -64,17 +44,9 @@ void soln2(vector<int>&arr,int n){
 }
 
 int main(){
-    int n = 3 ;
-    vector<int>arr = {8,6,9};
-    // int j = -1 ;
-    // for(int i=0;i<n;i++){
-    //     if(arr[i] == 0){
-    //         j = i ;
-    //         break;
-    //     }
-    // }
-    // cout << j ;
-    soln2(arr,n);
+
+    vector<int>arr = {0,8,0,6,9};
+    soln2(arr);
     for(int i : arr){
         cout << i << " ";
     }
