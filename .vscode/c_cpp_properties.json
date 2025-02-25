@@ -1,19 +1,22 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "MSYS2",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:/msys64/mingw64/include",       // Path to MSYS2 MinGW include files
+                "C:/msys64/usr/include"            // Standard include path
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",  // Path to g++ compiler
             "windowsSdkVersion": "10.0.22621.0",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64"
+            "intelliSenseMode": "gcc-x64"  // Use GCC for IntelliSense mode
         }
     ],
     "version": 4
