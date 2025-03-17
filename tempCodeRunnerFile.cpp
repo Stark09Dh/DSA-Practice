@@ -1,4 +1,3 @@
-vector<int>ans = josephus(items , k ) ;
-    for(int &i : ans ){
-        cout << i << " ";
-    }
+for(int i=0;i<res;i++){
+    //     cout << nums[i]<< " ";
+    // }
