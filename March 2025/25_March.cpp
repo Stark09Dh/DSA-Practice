@@ -18,10 +18,8 @@ public:
                 ans.push_back(points[i]) ;
             }
         }
-        return ans ;
-        
+        return ans ;     
     }
-
     bool checkValidCuts(int n, vector<vector<int>>& rectangles) {
         vector<vector<int>>x_coordinates ;
         vector<vector<int>>y_coordinates ;
